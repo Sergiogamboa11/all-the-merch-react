@@ -1,15 +1,14 @@
 import React from 'react'
 import { PRODUCTS } from '../../products'
 import { Product } from './Product'
+import "./Shop.css"
 
 export const Shop = () => {
   return (
     <div className="shop">
 
       <div className="title">
-        <h1>
-          AllTheMerch
-        </h1>
+        AllTheMerch
       </div>
       <div className="products">
         {" "}

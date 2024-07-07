@@ -1,3 +1,8 @@
+import product1 from "./assets/1.png";
+import product2 from "./assets/2.png";
+import product3 from "./assets/3.webp";
+import product4 from "./assets/4.jpg";
+
 export const PRODUCTS = [
     {
         item: 1,
@@ -6,7 +11,7 @@ export const PRODUCTS = [
         type: "Shirt",
         stock: 14,
         description: "Black t-shirt. Altered State album art.",
-        image: "some image",
+        image: product1,
         price: 24.99
     },
     {
@@ -16,7 +21,7 @@ export const PRODUCTS = [
         type: "Shirt",
         stock: 21,
         description: "Black t-shirt. One album art.",
-        image: "some image",
+        image: product2,
         price: 24.99
     },
     {
@@ -26,7 +31,7 @@ export const PRODUCTS = [
         type: "CD",
         stock: 120,
         description: "2013 Century Media Records",
-        image: "some image",
+        image: product3,
         price: 9.99
     },
     {
@@ -36,7 +41,7 @@ export const PRODUCTS = [
         type: "Shirt",
         stock: 14,
         description: "White t-shirt. Front only.",
-        image: "some image",
+        image: product4,
         price: 14.99
     },
 ]
