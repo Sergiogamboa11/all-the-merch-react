@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { Shop } from './pages/shop/Shop'
 import { Cart } from './pages/cart/Cart'
+import { Product } from './pages/product/Product'
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 
@@ -23,7 +24,9 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Shop />} />
+          <Route path="/shop" element={<Shop />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/product" element={<Product />} />
         </Routes>
       </Router>
     </div>
