@@ -12,21 +12,21 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "purchase_item")
-public class PurchaseItem {
+@Table(name = "purchase_product")
+public class PurchaseProduct {
 
 	@Id
-	@Column(name="purchase_item_id")
+	@Column(name="purchase_product_id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int purchaseItemId;
+	private int purchaseProductId;
 	
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="purchase_id")
 	private Purchase purchase;
 	
 	@OneToOne(fetch=FetchType.EAGER)
-	@JoinColumn(name="item_id")
-	private Item item;
+	@JoinColumn(name="product_id")
+	private Product product;
 	
 	@Column(name="quantity")
 	private int quantity;
@@ -34,31 +34,31 @@ public class PurchaseItem {
 	@Column(name="purchase_price")
 	private double purchase_price;
 
-	public PurchaseItem() {
+	public PurchaseProduct() {
 		
 	}
 
-	public PurchaseItem(int purchaseItemId, Purchase purchase, Item item, int quantity, double purchase_price) {
-		this.purchaseItemId = purchaseItemId;
+	public PurchaseProduct(int purchaseProductId, Purchase purchase, Product product, int quantity, double purchase_price) {
+		this.purchaseProductId = purchaseProductId;
 		this.purchase = purchase;
-		this.item = item;
+		this.product = product;
 		this.quantity = quantity;
 		this.purchase_price = purchase_price;
 	}
 	
-	public PurchaseItem(Purchase purchase, Item item, int quantity, double purchase_price) {
+	public PurchaseProduct(Purchase purchase, Product product, int quantity, double purchase_price) {
 		this.purchase = purchase;
-		this.item = item;
+		this.product = product;
 		this.quantity = quantity;
 		this.purchase_price = purchase_price;
 	}
 
-	public int getPurchaseItemId() {
-		return purchaseItemId;
+	public int getPurchaseProductId() {
+		return purchaseProductId;
 	}
 
-	public void setPurchaseItemId(int purchaseItemId) {
-		this.purchaseItemId = purchaseItemId;
+	public void setPurchaseProductId(int purchaseProductId) {
+		this.purchaseProductId = purchaseProductId;
 	}
 
 	public Purchase getPurchases() {
@@ -69,12 +69,12 @@ public class PurchaseItem {
 		this.purchase = purchase;
 	}
 
-	public Item getItem() {
-		return item;
+	public Product getProduct() {
+		return product;
 	}
 
-	public void setItem(Item item) {
-		this.item = item;
+	public void setProduct(Product product) {
+		this.product = product;
 	}
 
 	public int getQuantity() {
@@ -95,7 +95,7 @@ public class PurchaseItem {
 
 	@Override
 	public String toString() {
-		return "PurchaseItem [purchaseItemId=" + purchaseItemId + ", purchase=" + purchase + ", item=" + item
+		return "PurchaseProduct [purchaseProductId=" + purchaseProductId + ", purchase=" + purchase + ", product=" + product
 				+ ", quantity=" + quantity + ", purchase_price=" + purchase_price + "]";
 	}
 	

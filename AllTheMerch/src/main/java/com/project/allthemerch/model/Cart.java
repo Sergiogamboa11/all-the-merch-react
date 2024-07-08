@@ -29,7 +29,7 @@ public class Cart {
 	
 	@OneToMany(mappedBy = "cart")
 	@JsonManagedReference
-    private List<CartItem> cartItems;
+    private List<CartProduct> cartProducts;
 
 	public int getCartId() {
 		return cartId;

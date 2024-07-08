@@ -12,13 +12,13 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Item")
-public class Item {
+@Table(name = "Product")
+public class Product {
 	
 	@Id
-	@Column(name = "item_id")
+	@Column(name = "product_id")
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int itemId;
+	private int productId;
 	
 	@OneToOne
 	@JoinColumn(name="artist_id")
@@ -45,13 +45,13 @@ public class Item {
 	@Column
 	private double price;
 	
-	public Item() {
+	public Product() {
 	}
 
-	public Item(int itemId, Artist artist, String name, String type, int stock, LocalDate restockDate, String description, String image,
+	public Product(int productId, Artist artist, String name, String type, int stock, LocalDate restockDate, String description, String image,
 			double price) {
 		super();
-		this.itemId = itemId;
+		this.productId = productId;
 		this.artist = artist;
 		this.name = name;
 		this.type = type;
@@ -62,7 +62,7 @@ public class Item {
 		this.price = price;
 	}
 	
-	public Item(Artist artist, String name, String type, int stock, LocalDate restockDate, String description, String image,
+	public Product(Artist artist, String name, String type, int stock, LocalDate restockDate, String description, String image,
 			double price) {
 		super();
 		this.artist = artist;
@@ -75,12 +75,12 @@ public class Item {
 		this.price = price;
 	}
 
-	public int getItemId() {
-		return itemId;
+	public int getProductId() {
+		return productId;
 	}
 
-	public void setItemId(int itemId) {
-		this.itemId = itemId;
+	public void setProductId(int productId) {
+		this.productId = productId;
 	}
 
 	public Artist getArtist() {
@@ -149,7 +149,7 @@ public class Item {
 
 	@Override
 	public String toString() {
-		return "Item [itemId=" + itemId + ", artist=" + artist + ", name=" + name + ", type=" + type + ", stock="
+		return "Product [productId=" + productId + ", artist=" + artist + ", name=" + name + ", type=" + type + ", stock="
 				+ stock + ", restockDate=" + restockDate + ", description=" + description + ", image=" + image
 				+ ", price=" + price + "]";
 	}

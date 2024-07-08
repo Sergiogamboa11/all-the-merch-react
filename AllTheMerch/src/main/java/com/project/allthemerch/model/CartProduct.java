@@ -14,15 +14,15 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
-@Table(name = "Cart_Item")
-public class CartItem {
+@Table(name = "Cart_Product")
+public class CartProduct {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, 
-	generator = "cart_item_seq")
-	@SequenceGenerator(name = "cart_item_seq", 
+	generator = "cart_product_seq")
+	@SequenceGenerator(name = "cart_product_seq", 
 	initialValue = 2)
-	private int cartItemId;
+	private int cartProductId;
 
 	@ManyToOne
 	@JoinColumn(name = "cart_id")
@@ -30,37 +30,37 @@ public class CartItem {
 	private Cart cart;
 
 	@OneToOne
-	@JoinColumn(name = "item_id")
+	@JoinColumn(name = "product_id")
 //	@JsonManagedReference
-	private Item item;
+	private Product product;
 
 	@Column
 	private int quantity;
 	
-	public CartItem() {
+	public CartProduct() {
 	}
 	
-	public CartItem(int cartItemId, Cart cart, Item item, int quantity) {
+	public CartProduct(int cartProductId, Cart cart, Product product, int quantity) {
 		super();
-		this.cartItemId = cartItemId;
+		this.cartProductId = cartProductId;
 		this.cart = cart;
-		this.item = item;
+		this.product = product;
 		this.quantity = quantity;
 	}
 
-	public CartItem(Cart cart, Item item, int quantity) {
+	public CartProduct(Cart cart, Product product, int quantity) {
 		super();
 		this.cart = cart;
-		this.item = item;
+		this.product = product;
 		this.quantity = quantity;
 	}
 
-	public int getCartItemId() {
-		return cartItemId;
+	public int getCartProductId() {
+		return cartProductId;
 	}
 
-	public void setCartItemId(int cartItemId) {
-		this.cartItemId = cartItemId;
+	public void setCartProductId(int cartProductId) {
+		this.cartProductId = cartProductId;
 	}
 
 	public Cart getCart() {
@@ -71,12 +71,12 @@ public class CartItem {
 		this.cart = cart;
 	}
 
-	public Item getItem() {
-		return item;
+	public Product getProduct() {
+		return product;
 	}
 
-	public void setItem(Item item) {
-		this.item = item;
+	public void setProduct(Product product) {
+		this.product = product;
 	}
 
 	public int getQuantity() {
@@ -89,7 +89,7 @@ public class CartItem {
 
 	@Override
 	public String toString() {
-		return "CartItem [cartItemId=" + cartItemId + ", cart=" + cart + ", item=" + item + ", quantity=" + quantity
+		return "CartProduct [cartProductId=" + cartProductId + ", cart=" + cart + ", product=" + product + ", quantity=" + quantity
 				+ "]";
 	}
 
