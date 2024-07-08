@@ -15,45 +15,45 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.project.allthemerch.model.Item;
-import com.project.allthemerch.service.ItemService;
+import com.project.allthemerch.model.Product;
+import com.project.allthemerch.service.ProductService;
 
 @RestController
-@RequestMapping("/api/items")
+@RequestMapping("/api/products")
 @CrossOrigin
-public class ItemController {
+public class ProductController {
 	
 	@Autowired
-	private ItemService itemService;
+	private ProductService productService;
 	
 	@PostMapping
-	public Item createItem(@RequestBody Item item) {
-		item.setItemId(0);
-		return itemService.save(item);
+	public Product createProduct(@RequestBody Product product) {
+		product.setProductId(0);
+		return productService.save(product);
 	}
 	
 	@GetMapping
-	public List<Item> getItems() {
-		return itemService.findAll();
+	public List<Product> getProducts() {
+		return productService.findAll();
 	}
 
 	@GetMapping("/{id}") 
-	public Item getCustomersByid(@PathVariable(value = "id") int itemId) {
-		return itemService.findByItemId(itemId);
+	public Product getCustomersByid(@PathVariable(value = "id") int productId) {
+		return productService.findByProductId(productId);
 	}
 	
 	@DeleteMapping("/{id}")
-	public void deleteItem(@PathVariable(value = "id") int itemId) {
-		itemService.delete(itemId);
+	public void deleteProduct(@PathVariable(value = "id") int productId) {
+		productService.delete(productId);
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<Item> putItem(@RequestBody Item item, @PathVariable(value = "id") int itemId) {
-		System.out.println(item.getItemId());
-		if(item.getItemId() > 0 && item.getItemId() != itemId) {
+	public ResponseEntity<Product> putProduct(@RequestBody Product product, @PathVariable(value = "id") int productId) {
+		System.out.println(product.getProductId());
+		if(product.getProductId() > 0 && product.getProductId() != productId) {
 			return new ResponseEntity<>(null, HttpStatus.OK);
 		}
-		item.setItemId(itemId);
-		return new ResponseEntity<>(itemService.save(item), HttpStatus.OK);
+		product.setProductId(productId);
+		return new ResponseEntity<>(productService.save(product), HttpStatus.OK);
 	}
 }
