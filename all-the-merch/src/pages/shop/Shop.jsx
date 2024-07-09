@@ -1,18 +1,27 @@
-import React from 'react'
-import { PRODUCTS } from '../../products'
+import React, { useEffect, useState } from 'react'
 import { ProductCard } from './ProductCard'
 import "./Shop.css"
+import axios from 'axios'
 
 export const Shop = () => {
+
+  const [products, setProducts] = useState([])
+
+  useEffect(() => {
+    axios.get('http://localhost:9026/api/products').then(res => {
+      setProducts(res.data.map(p => p))
+    })
+  }, [])
+
   return (
     <div className="shop">
 
       <div className="title">
-        AllTheMerch
+        Featured
       </div>
       <div className="products">
         {" "}
-        {PRODUCTS.map((product) => (
+        {products.map((product) => (
           <ProductCard data={product} />
         ))
         }
