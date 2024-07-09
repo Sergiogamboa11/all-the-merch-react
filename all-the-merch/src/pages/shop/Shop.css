@@ -3,16 +3,13 @@
 }
 
 .title {
-    font-size: 7rem;
+    font-size: 1.5rem;
     font-weight: 600;
-    text-align: center;
-    padding-bottom: 2rem;
+    padding: 1rem 0.5rem;
 }
 
 .products {
-    padding: 0 3rem;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    row-gap: 5rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
 }
