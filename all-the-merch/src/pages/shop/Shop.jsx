@@ -11,10 +11,10 @@ export const Shop = () => {
     axios.get('http://localhost:9026/api/products').then(res => {
       setProducts(res.data.map(p => p))
     })
-  }, [])
+  })
 
   return (
-    <div className="shop">
+    <div className="shop-margins">
 
       <div className="title">
         Featured
