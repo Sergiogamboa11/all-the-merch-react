@@ -11,7 +11,7 @@ export const Shop = () => {
     axios.get('http://localhost:9026/api/products').then(res => {
       setProducts(res.data.map(p => p))
     })
-  })
+  }, [])
 
   return (
     <div className="shop-margins">
@@ -22,7 +22,7 @@ export const Shop = () => {
       <div className="products">
         {" "}
         {products.map((product) => (
-          <ProductCard data={product} />
+          <ProductCard data={product} key={product.productId} />
         ))
         }
       </div>
