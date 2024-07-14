@@ -3,9 +3,10 @@ import "./ProductCard.css"
 import Button from 'react-bootstrap/Button';
 
 export const ProductCard = (props) => {
-    const { name, image, price } = props.data;
+
+    const { productId, name, image, price } = props.data;
     return (
-        <Button variant="light" href="/product">
+        <Button variant="light" href={"/product/" + productId} >
             <img className="product-image" src={image} />
             <div>{name}</div>
             <div>${price}</div>
