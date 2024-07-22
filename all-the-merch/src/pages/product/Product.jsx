@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import "./Product.css"
+import Button from 'react-bootstrap/Button';
 
 export const Product = () => {
 
@@ -18,14 +19,18 @@ export const Product = () => {
 
   if (product) {
     return (
-      <div className="shop-margins">
-        <h1 className='product-detail-title'>{product.name} - ${product.price}</h1>
-        <div>
+      <div className="shop-margins product-detail-container">
+        <div className='product-detail'>
           <img className='product-detail-image' src={product.image} />
+        </div>
+        <div className='product-detail'>
+          <h3 className='product-detail-title'>{product.name}</h3>
+          <h4>${product.price}</h4>
+          <Button variant="outline-success">Add to Cart</Button>{' '}
         </div>
       </div>
     )
-  } 
+  }
   else if (!id[2] || isLoaded) {
     return <div>This product does not exist!</div>
   }

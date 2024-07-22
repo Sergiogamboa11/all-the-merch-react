@@ -1,8 +1,14 @@
-.product-detail-title {
-    padding: 2rem 0;
-}
-
 .product-detail-image {
     width: 35rem;
     height: 35rem;
+}
+
+.product-detail-container {
+    padding-top: 5rem;
+    display: flex;
+}
+
+.product-detail {
+    width: 50%;
+    min-width: 40rem;
 }
