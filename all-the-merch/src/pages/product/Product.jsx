@@ -24,9 +24,15 @@ export const Product = () => {
           <img className='product-detail-image' src={product.image} />
         </div>
         <div className='product-detail'>
-          <h3 className='product-detail-title'>{product.name}</h3>
+          <h2 className='product-detail-title'>{product.name}</h2>
           <h4>${product.price}</h4>
+          <div>
+            <h5>Quantity:</h5>
+            <input type="number" id="quantity" name="quantity" defaultValue="1" min="1" max="5"></input>
+          </div>
           <Button variant="outline-success">Add to Cart</Button>{' '}
+          <h3>Description</h3>
+          <h5>{product.description}</h5>
         </div>
       </div>
     )
